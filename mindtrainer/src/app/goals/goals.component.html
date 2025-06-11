@@ -11,9 +11,10 @@
             @for (goal of goals; track $index) {
             <div class="single-goal">
                 <p>{{ goals[$index].goal }}</p>
-                <button type="button" (click)="onMoveGoalUp($index)"> &#8679; </button>
-                <button type="button" (click)="onDeleteGoal($index)"> x </button>
-                <button type="button" (click)="onMoveGoalDown($index)"> &#8681; </button>
+                <button type="button" (click)="onDeleteGoal($index)"> &#10004; </button>
+                <div>
+                <button type="button" class="btn-up" (click)="onMoveGoalUp($index)"> &#8679; </button>
+                <button type="button" class="btn-down" (click)="onMoveGoalDown($index)"> &#8681; </button></div>
             </div>
             }
         </div>

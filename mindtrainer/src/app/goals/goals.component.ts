@@ -23,6 +23,13 @@ export class GoalsComponent {
     { goal: 'Das ist mein fünftes Ziel' },
   ]
 
+  constructor(){
+    const savedGoals = localStorage.getItem('savedGoals');
+    if (savedGoals) {
+      this.goals = JSON.parse(savedGoals);
+    }
+  }
+
   onSubmit() {
     if (this.enteredGoal !== "") {
       this.inputEmpty = false;
@@ -36,11 +43,16 @@ export class GoalsComponent {
         this.inputEmpty = false;
       }, 1000);
     }
+    this.saveGoals();
+  }
 
+  private saveGoals() {
+    localStorage.setItem('savedGoals', JSON.stringify(this.goals));
   }
 
   onDeleteGoal(index: number) {
     this.goals.splice(index, 1);
+    this.saveGoals();
   }
 
   onMoveGoalUp(index: number) {
@@ -52,6 +64,7 @@ export class GoalsComponent {
     } else {
     this.goals.splice(index-1, 0, {goal: this.movedGoal})
     }
+    this.saveGoals();
   }
 
   onMoveGoalDown(index: number) {
@@ -61,5 +74,6 @@ export class GoalsComponent {
     if (index >= this.goals.length) {
       this.goals.splice(0, 0, {goal: this.movedGoal})
     } else {this.goals.splice(index+1, 0, {goal: this.movedGoal})}
+    this.saveGoals();
   }
 }
