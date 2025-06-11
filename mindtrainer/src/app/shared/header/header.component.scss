@@ -1,0 +1,19 @@
+@import '../../../styles.scss';
+
+.header-content {
+    width: 100%;
+    height: 4rem;
+    background-image: linear-gradient(rgb(120, 173, 243), rgb(120, 173, 243), rgb(120, 173, 243), rgb(173, 193, 250));
+
+    nav {
+        @include d-general(space-around, center);
+        height: 100%;
+
+        a {
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<section>
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="goals-content">
+        <form (ngSubmit)="onSubmit()">
+            <textarea name="goal-input" id="goal-input" rows="3" placeholder="Enter your goal..." [(ngModel)]="enteredGoal" [ngClass]="{'missingValue': inputEmpty}"></textarea>
+            <button type="submit">Add goal</button>
+        </form>
+        <div>
+            @for (goal of goals; track $index) {
+            <div class="single-goal">
+                <p>{{ goals[$index].goal }}</p>
+                <button type="button" (click)="onMoveGoalUp($index)"> &#8679; </button>
+                <button type="button" (click)="onDeleteGoal($index)"> x </button>
+                <button type="button" (click)="onMoveGoalDown($index)"> &#8681; </button>
+            </div>
+            }
+        </div>
+    </div>
+</section>

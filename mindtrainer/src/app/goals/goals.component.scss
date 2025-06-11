@@ -1,0 +1,84 @@
+@import '../../styles.scss';
+
+section {
+    background-color: rgb(173, 193, 250);
+
+    .goals-content {
+        @include d-general(flex-start, center);
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        padding-top: 4rem;
+
+        form {
+            @include d-general();
+            flex-direction: column;
+            gap: 0.5rem;
+            width: fit-content;
+            height: fit-content;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 01rem;
+
+            textarea,
+            button {
+                width: 16rem;
+                padding: 0.5rem;
+                border: solid 2px rgb(86, 109, 172);
+                border-radius: 0.5rem;
+            }
+
+            .missingValue {
+                border: solid 2px rgb(255, 21, 21);
+            }
+
+            button {
+                background-color: rgb(120, 173, 243);
+                color: white;
+                font-weight: 700;
+                font-size: 1rem;
+                transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: white;
+                    color: rgb(120, 173, 243);
+                }
+            }
+        }
+
+        >div {
+            .single-goal {
+                @include d-general(space-between, center);
+                width: fit-content;
+                height: fit-content;
+                margin: 0.5rem;
+                padding: 1rem;
+                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 01rem;
+                gap: 2rem;
+
+                p {
+                    width: 32rem;
+                }
+
+                button {
+                    padding: 0.5rem;
+                    border: solid 2px rgb(86, 109, 172);
+                    border-radius: 0.5rem;
+                    background-color: rgb(120, 173, 243);
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: white;
+                        color: rgb(120, 173, 243);
+                    }
+                }
+            }
+        }
+    }
+}
